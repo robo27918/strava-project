@@ -1,6 +1,9 @@
 from sqlalchemy import create_engine,text
 from sqlalchemy.orm import Session
-engine = create_engine("sqlite+pysqlite:///:memory:",echo=True)
+from dotenv import load_dotenv
+import os
+load_dotenv()
+engine = create_engine(os.getenv("DB_URL"))
 
 # creating context manager for Engine
 with engine.connect() as conn:
@@ -17,10 +20,10 @@ with engine.connect() as conn:
     
     conn.commit()# commits it to the table 
 
-with engine.connect() as conn2:
-    result = conn2.execute(text("SELECT x,y from some_table"))
-    for row in result:
-        print(f"x {row.x} {row.y}")
+# with engine.connect() as conn2:
+    # result = conn2.execute(text("SELECT x,y from some_table"))
+    # for row in result:
+        # print(f"x {row.x} {row.y}")
 
 stmt = text("SELECT x,y FROM some_table where y> :y ORDER BY x, y")
 with Session(engine) as sess:

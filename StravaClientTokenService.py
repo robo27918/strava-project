@@ -30,8 +30,11 @@ class StravaClientTokenService:
         """
         if os.path.exists(self.tokens_file):
             with open(self.tokens_file,"r") as f:
+                print("load successful")
                 return json.load(f)
-        return {}
+        else:
+            print("FAILED TO LOAD FILE")
+            return {}
     
     def save_token(self,tokens):
         with open(self.tokens_file,"w") as f:
