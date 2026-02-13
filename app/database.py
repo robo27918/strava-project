@@ -1,4 +1,5 @@
 from sqlalchemy import create_engine,text
+from sqlalchemy.orm import Session
 engine = create_engine("sqlite+pysqlite:///:memory:",echo=True)
 
 # creating context manager for Engine
@@ -12,3 +13,8 @@ with engine.connect() as conn:
         )
     
     conn.commit()# commits it to the table 
+
+with engine.connect() as conn2:
+    result = conn2.execute(text("SELECT x,y from some_table"))
+    for row in result:
+        print(f"x {row.x} {row.y}")
