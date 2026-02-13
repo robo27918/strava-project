@@ -47,3 +47,4 @@ summary_activity_table = Table(
     Column('total_elevation_gain',Float),
 )
 print(summary_activity_table.c.keys())
+metadata_obj.create_all(engine)
