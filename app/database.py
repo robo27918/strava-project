@@ -9,6 +9,9 @@ with engine.connect() as conn:
         text("INSERT INTO some_table (x,y) VALUES(:x, :y)"),
              [{"x" :1 , "y":1},
               {"x": 34, "y":25},
+              {'x':55, "y":234},
+              {"x":34, "y":-1},
+              {"x":-25,"y":4521}
             ]
         )
     
@@ -18,3 +21,9 @@ with engine.connect() as conn2:
     result = conn2.execute(text("SELECT x,y from some_table"))
     for row in result:
         print(f"x {row.x} {row.y}")
+
+stmt = text("SELECT x,y FROM some_table where y> :y ORDER BY x, y")
+with Session(engine) as sess:
+    result = sess.execute(stmt, {"y":6})
+    for x,y in result:
+        print(f"x:{x} y:{y}")
