@@ -47,4 +47,5 @@ summary_activity_table = Table(
     Column('total_elevation_gain',Float),
 )
 print(summary_activity_table.c.keys())
+# creates database in postgres
 metadata_obj.create_all(engine)
