@@ -17,4 +17,27 @@ class BaseRepository(Generic[T]):
             query = query.limit(limit).offset(offset)
         return query.all
     
+    def create(self,**kwargs)-> T:
+        '''create new record'''
+        instance = self.model(**kwargs)
+        self.session.add(instance)
+        self.session.flush()
+
+    def update(self, id:int, **kwargs)->Optional[T]:
+        instance = self.get_by_id(id)
+        if instance:
+            for key,value in kwargs.items():
+                setattr(instance,key,value)
+            self.session.flush()
+            print("created new object")
+    
+    def delete(self,id:int)->bool:
+        instance = self.get_by_id(id)
+        if instance:
+            self.session.delete(instance)
+            self.session.flush()
+            print('Deleted an object')
+            return True
+        return False
+
 
