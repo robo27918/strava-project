@@ -1,6 +1,7 @@
 from typing import List,Optional
 from sqlalchemy.orm import Mapped,mapped_column,relationship
 from sqlalchemy import Integer,Float
+from models.base import Base
 class SummaryActivity(Base):
     __tablename__ = "summary_activity"
     id: Mapped[int] = mapped_column(primary_key=True)
