@@ -3,6 +3,6 @@ from sqlalchemy.orm import Session
 from models.summary_activity import SummaryActivity
 from base_repository import BaseRepository
 
-class SummaryActivity(BaseRepository):
+class SummaryActivityRepository(BaseRepository):
     def __int__(self,session:Session):
         super().__int__(SummaryActivity,session)

@@ -14,3 +14,8 @@
     - allows comple sets of objects to be manipulated
     without things getting out of sync.
 
+
+2/17/2026
+- the client abstraction should be in charge
+of getting all the data from the stravalib
+api. It will be a wrapper class to make ingesting data easier.
