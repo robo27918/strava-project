@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from StravaClientTokenService import StravaClientTokenService
+from services.strava_token_service import StravaClientTokenService
 from pprint import pprint
 load_dotenv()
 service = StravaClientTokenService('tokens.json')

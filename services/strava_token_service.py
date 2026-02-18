@@ -4,7 +4,7 @@ from stravalib import Client
 from dotenv import load_dotenv
 import time
 load_dotenv()
-class StravaClientTokenService:
+class StravaTokenService:
     '''
         ClientTokenService
             - creates a client with token authorization
@@ -40,6 +40,7 @@ class StravaClientTokenService:
         with open(self.tokens_file,"w") as f:
             json.dump(tokens,f,indent=2)
         print("=="*10,"TOKEN SAVED", "=="*10)
+    
     def get_client(self):
         client = Client()
         client.access_token = self.access_token

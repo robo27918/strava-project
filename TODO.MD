@@ -8,6 +8,8 @@
 
 2/17/2026
 -get real data over to postgres localdb
-    - create Ingestion Service to read data
-    - create a SummaryStatisticsService
-    -add clientservice to communicate with strava specifically
+    x create Ingestion Service to read data
+    x create a SummaryStatisticsService
+2/18/2026
+-add clientservice to communicate with strava specifically
+-write script to load data to postgres
