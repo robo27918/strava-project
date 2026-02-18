@@ -9,6 +9,7 @@ class IngestionService:
     def ingest_summary_stats_only(self)->dict:
         self._ingest_summary_stats()
         print("ingested summary stats!")
+    
     def _ingest_summary_stats():
         try:
             api_data = self.strava_api_client.fetch_summary_stats()
