@@ -10,3 +10,4 @@
 -get real data over to postgres localdb
     - create Ingestion Service to read data
     - create a SummaryStatisticsService
+    -add clientservice to communicate with strava specifically
