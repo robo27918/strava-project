@@ -20,9 +20,11 @@ class IngestionService:
                 activity.__dict__
                 for activity in api_data
             ]
-            print(activities)
+            print("activities type",type(activities))
+            print("first entry",activities[0])
             sum_stat_service = SummaryActivityService(self.session)
-            sum_stat_service.bulk_write(activities)
+            for a in activities:
+                sum_stat_service.write_to_db(a)
             return api_data
         except Exception as e:
             print("Summary Stats Ingestion Failed!", e)
