@@ -4,5 +4,5 @@ from models.summary_activity import SummaryActivity
 from repositories.base_repository import BaseRepository
 
 class SummaryActivityRepository(BaseRepository):
-    def __int__(self,session:Session):
-        super().__int__(SummaryActivity,session)
+    def __init__(self,session:Session):
+        super().__init__(SummaryActivity,session)

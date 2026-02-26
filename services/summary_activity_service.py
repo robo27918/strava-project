@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from repositories.summary_activity_repository import SummaryActivityRepository
 class SummaryActivityService:
-    def __int__(self,session:Session):
+    def __init__(self,session:Session):
         self.session = session
         self.summary_stats_repository = SummaryActivityRepository(self.session)
     

@@ -9,13 +9,13 @@ class BaseRepository(Generic[T]):
         self.session = session
     
     def get_by_id(self, id:int) ->Optional[T]:
-        return self.session.query(self.model_class).get(id)
+        return self.session.get(self.model_class,id)
 
     def get_all(self, limit:Optional[int]=None, offset:int =0)->List[T]:
         query = self.session.query(self.model_class)
-        if limit:
+        if limit is not None:
             query = query.limit(limit).offset(offset)
-        return query.all
+        return query.all()
     
     def create(self,**kwargs)-> T:
         '''create new record'''
@@ -30,6 +30,7 @@ class BaseRepository(Generic[T]):
                 setattr(instance,key,value)
             self.session.flush()
             print("created new object")
+        return instance
     
     def delete(self,id:int)->bool:
         instance = self.get_by_id(id)
