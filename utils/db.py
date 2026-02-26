@@ -1,9 +1,9 @@
-from contextlib import contextManger
+from contextlib import contextmanager
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 from models.base import SessionLocal,engine,Base
 
-@contextManger
+@contextmanager
 def get_db_session():
     """
         usage:

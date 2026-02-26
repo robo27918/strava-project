@@ -19,3 +19,8 @@
 - the client abstraction should be in charge
 of getting all the data from the stravalib
 api. It will be a wrapper class to make ingesting data easier. It should not format data to fit the schema due to seperation of concerns. It's only job is to fetch data.
+
+2/25/2026
+- when running the script file with poetry we should do
+  the following
+    poetry run python -m <filename>.main

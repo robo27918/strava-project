@@ -1,4 +1,4 @@
-from typing import TypeVar,Generic,List,Optional,Dict,Any
+from typing import TypeVar,Generic,List,Optional,Dict,Any,Type
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 T = TypeVar('T')

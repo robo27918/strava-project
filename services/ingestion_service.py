@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from services.summary_statistics_service import SummaryStatisticService
+from services.summary_activity_service import SummaryActivityService
 
 class IngestionService:
     def __init__(self,session:Session):
