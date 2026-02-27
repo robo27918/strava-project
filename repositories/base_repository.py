@@ -19,9 +19,10 @@ class BaseRepository(Generic[T]):
     
     def create(self,**kwargs)-> T:
         '''create new record'''
-        instance = self.model(**kwargs)
+        instance = self.model_class(**kwargs)
         self.session.add(instance)
         self.session.flush()
+        return instance
 
     def update(self, id:int, **kwargs)->Optional[T]:
         instance = self.get_by_id(id)
@@ -29,7 +30,7 @@ class BaseRepository(Generic[T]):
             for key,value in kwargs.items():
                 setattr(instance,key,value)
             self.session.flush()
-            print("created new object")
+            print("updated object")
         return instance
     
     def delete(self,id:int)->bool:
