@@ -1,6 +1,7 @@
 from typing import List,Optional
 from sqlalchemy.orm import Mapped,mapped_column,relationship
-from sqlalchemy import Integer,Float,BigInteger
+from sqlalchemy import Integer,Float,BigInteger,Datetime
+from datetime import datetime
 from models.base import Base
 class SummaryActivity(Base):
     __tablename__ = "summary_activity"
@@ -14,3 +15,5 @@ class SummaryActivity(Base):
     max_speed:Mapped[Optional[float]] = mapped_column(Float, nullable=True)
     moving_time:Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
     total_elevation_gain:Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    start_date:Mapped[Optional[datetime]] = mapped_column(Datetime, nullable=True)
+    distance:Mapped[Optional[float]] = mapped_column(Float, nullable=True)

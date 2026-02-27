@@ -13,3 +13,7 @@
 2/18/2026
 -add clientservice to communicate with strava specifically
 -write script to load data to postgres
+
+2/26/2026
+-add date and time to SummaryActivityStat
+-
