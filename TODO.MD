@@ -15,5 +15,8 @@
 -write script to load data to postgres
 
 2/26/2026
--add date and time to SummaryActivityStat
--
+-add date and time to SummaryActivityStats
+
+3/4/2026
+- use pandas to learn about the data
+    - 

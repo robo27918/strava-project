@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlalchemy.orm import Session
 from repositories.summary_activity_repository import SummaryActivityRepository
 class SummaryActivityService:
@@ -28,6 +29,8 @@ class SummaryActivityService:
                 "max_speed":api_data.get('max_speed',0.0),
                 "moving_time":api_data.get('moving_time',0),       
                 "total_elevation_gain":api_data.get('total_elevation_gain',0.0),       
+                "start_date":api_data.get('start_date',datetime.fromisoformat("2024-02-04")),       
+                "distance":api_data.get('distance',0.0),       
             }
         except Exception as e:
             print("api_data",api_data)
